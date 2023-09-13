@@ -1,0 +1,10 @@
+G:\PRG\OpakOOP1\OpakOOP1\bin\Debug\OpakOOP1.exe.config
+G:\PRG\OpakOOP1\OpakOOP1\bin\Debug\OpakOOP1.exe
+G:\PRG\OpakOOP1\OpakOOP1\bin\Debug\OpakOOP1.pdb
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.csprojAssemblyReference.cache
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.Form1.resources
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.Properties.Resources.resources
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.csproj.GenerateResource.cache
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.csproj.CoreCompileInputs.cache
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.exe
+G:\PRG\OpakOOP1\OpakOOP1\obj\Debug\OpakOOP1.pdb
