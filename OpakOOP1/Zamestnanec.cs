@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace OpakOOP1
 {
-    class Zamestnanec
+    internal class Zamestnanec
     {
         private string titul;
         private string jmeno;
@@ -21,11 +21,12 @@ namespace OpakOOP1
             this.Jmeno = jmeno;
             this.mplat = mplat;
             this.dndp = dndp;
+            this.pozice = "Zamestnanec";
             this.bonus = 0;
             this.hodiny = 0;
         }
 
-        string Jmeno
+        private string Jmeno
         {
             get
             {
@@ -33,19 +34,18 @@ namespace OpakOOP1
             }
             set
             {
-
-                string [] a = jmeno.Split(' ');
-                string jmenoo = a[1];
-                string prijmeni = a[2];
+                jmeno = value;
+                string[] a = jmeno.Split(' ');
+                string jmenoo = a[0];
+                string prijmeni = a[1];
                 string b = jmenoo.First().ToString();
                 jmenoo.Replace(jmenoo.First(), Convert.ToChar(b.ToUpper()));
                 prijmeni.ToUpper();
-                jmeno = jmenoo + prijmeni;
-
+                jmeno = jmenoo + " " + prijmeni;
             }
-
         }
-        string Titul
+
+        private string Titul
         {
             get
             {
@@ -53,58 +53,69 @@ namespace OpakOOP1
             }
             set
             {
+                titul = value;
                 titul.Trim();
                 string a = titul.First().ToString();
                 titul.Replace(titul.First(), Convert.ToChar(a.ToUpper()));
-                titul.Insert(titul.Length, ".");
-
+                titul = titul + ".";
             }
         }
+
         public int rocnipPlat(int plat)
         {
-            mplat=plat;
+            mplat = plat;
             return 12 * mplat;
         }
+
         public int pocetMesicu()
         {
             TimeSpan dnes = DateTime.Now - dndp;
             return (dnes.Days / 30);
         }
+
         public int celkem()
         {
             int castka = pocetMesicu() * mplat;
             return castka;
-
         }
+
         public void zvysOsobni(int castka)
         {
-            bonus = bonus + castka;
-            if(bonus>10000)
+            bonus += castka;
+            if (bonus > 10000)
             {
                 MessageBox.Show("Zaměstnanec je vedoucím!");
                 pozice = "Vedoucí";
             }
         }
+
         public void odpracHod(int hodina)
         {
-            hodiny = hodiny + hodina;
-            if(hodiny>=100)
+
+            if (hodiny >= 100)
             {
                 MessageBox.Show("Musíš relaxovat!");
             }
+            else
+            {
+                hodiny = hodiny + hodina;
+            }
+
         }
+
         public void relaxace(int relaxaceH)
         {
             relaxaccka = relaxaccka + relaxaceH;
-            if(relaxaccka>=72)
+            if (relaxaccka >= 72)
             {
                 relaxaccka = 0;
                 hodiny = 0;
             }
         }
+
         public override string ToString()
         {
-            return titul + " " + jmeno + " " + "Plat:" + mplat + " " + celkem() + " " + bonus + " " + rocnipPlat(mplat) + " " + hodiny;
+            return titul + " " + jmeno + " " + "Plat:" + mplat + "kč Celkem: " + celkem() + "kč Bonus: " + bonus + "kč Roční plat: " + rocnipPlat(mplat) + "kč hodiny: " + hodiny + " Je: " + pozice; ;
         }
     }
 }
